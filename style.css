@@ -1,0 +1,44 @@
+	* {
+			/*border: 1px solid red;*/
+		}
+		body {
+			background-color: teal;
+			font-family: monospace;
+			font-size: 1em;
+			color: #fff;
+			width: 70%;
+			margin: auto;
+			text-align: center;
+		}
+
+		.display {
+			position: relative;
+		}
+		.timer-display {
+			position: relative;
+			background-color: #000;
+			font-family: 'Aclonica', sans-serif;
+			font-size: 3em;
+			color: #fff;
+			width: 90%;
+			height: 60%;
+			margin: auto;
+			padding: 5px;
+			border-radius: 10px;
+		}
+
+		.timer-display h3 {
+			/*font-size: 4em;*/
+			display: none;
+		}
+
+		.button {
+			font-family: monospace;
+			padding: 5px;
+			font-size: 1.5em;
+			border-radius: 10px;
+		}
+
+		.button-display {
+			padding: 10px;
+		}
