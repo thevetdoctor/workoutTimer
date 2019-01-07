@@ -1,3 +1,6 @@
+ // workoutTimer js
+// Pre-interview Technical Challenge (Andela)
+
 
 	// Variable declarations
 
@@ -45,6 +48,7 @@
 
 
 	const startTimer = () => {
+    stopTimer();
 		currentTime = 0;
 		minutes = 0; hours = 0;
 		setInter = setInterval(counter, 1000);
