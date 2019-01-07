@@ -12,7 +12,7 @@
 		minutes = 0,
 		hours = 0;
 		timerDisplay.innerText = currentTime;
-		timerDisplay.innerText = `${Math.trunc(hours)} : ${Math.trunc(minutes)} : ${currentTime}`;
+		timerDisplay.innerText = `0${Math.trunc(hours)} : 0${Math.trunc(minutes)} : 0${currentTime}`;
 
 
 		// Setting visibility of buttons
@@ -33,21 +33,21 @@
 		if(minutes % 60 === 0) {
 			hours = currentTime / 3600;
 			minutes = minutes % 60;
-			// minutes = currentTime/60;
-			// seconds = currentTime % 60;
 		}
-		if(minutes < 10) {
-			// minutes = '0' + minutes;
-		}
-		timerDisplay.innerText = `${Math.trunc(hours)} : ${Math.trunc(minutes%60)} : ${currentTime%60}`;
+
+		hours = Math.trunc(hours) > 9 ? Math.trunc(hours) : `0${Math.trunc(hours)}`;
+		minutes = Math.trunc(minutes % 60) > 9 ? Math.trunc(minutes % 60) : `0${Math.trunc(minutes % 60)}`;
+		seconds = currentTime % 60 > 9 ? currentTime % 60 : `0${currentTime % 60}`;
+
+		timerDisplay.innerText = `${hours} : ${minutes} : ${seconds}`;
 		console.log(timerDisplay.innerText);
 	}
 
 
 	const startTimer = () => {
-		setInter = setInterval(counter, 100);
 		currentTime = 0;
 		minutes = 0; hours = 0;
+		setInter = setInterval(counter, 1000);
 		start.style.display = 'none';
 		pause.style.display = 'inline';
 		resume.style.display = 'none';
@@ -59,12 +59,10 @@
 		start.style.display = 'inline';
 		pause.style.display = 'none';
 		resume.style.display = 'inline';
-		timerDisplay.innerText = `${Math.trunc(hours)} : ${Math.trunc(minutes%60)} : ${currentTime%60}`;
 	}
 
 	const resumeTimer = () => {
-		setInter = setInterval(counter, 100);
-		timerDisplay.innerText = `${Math.trunc(hours)} : ${Math.trunc(minutes%60)} : ${currentTime%60}`;
+		setInter = setInterval(counter, 1000);
 		start.style.display = 'inline';
 		pause.style.display = 'inline';
 		resume.style.display = 'none';
@@ -73,7 +71,6 @@
 
 	const stopTimer = () => {
 		clearInterval(setInter);
-		timerDisplay.innerText = `${Math.trunc(hours)} : ${Math.trunc(minutes%60)} : ${currentTime%60}`;
 		start.style.display = 'inline';
 		pause.style.display = 'none';
 		resume.style.display = 'inline';
